@@ -35,7 +35,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: cd api && ./mvnv build
+      run: cd api && ./mvnw build
 
   build_docker:
 
