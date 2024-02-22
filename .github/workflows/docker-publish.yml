@@ -37,5 +37,5 @@ jobs:
           context: ./api
           file: ./api/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/tcapi:latest
 
