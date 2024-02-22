@@ -6,6 +6,7 @@
 *.idea
 .idea/**
 .idea
+.secrets
 
 # BlueJ files
 *.ctxt
