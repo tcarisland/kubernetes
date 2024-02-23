@@ -17,9 +17,12 @@ public class ItemRepository {
 
     @Autowired
     MongoTemplate mongoTemplate;
+    @Autowired
+    SequenceGeneratorService sequenceGeneratorService;
 
     public void addItem(Item item) {
         LOGGER.info("addItem called");
+        item.setId(sequenceGeneratorService.generateSequence(Item.SEQUENCE_NAME));
         mongoTemplate.insert(item);
     }
 
