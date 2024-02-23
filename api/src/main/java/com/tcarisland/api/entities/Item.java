@@ -9,4 +9,5 @@ import lombok.Data;
 public class Item {
     @Id
     private Long id;
+    private String name;
 }
