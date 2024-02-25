@@ -1,15 +1,12 @@
 import Image from "next/image";
-import ItemField from "@/app/components/ItemForm";
-import ItemForm from "@/app/components/ItemForm";
+import ItemField from "@/app/components/ItemFormField";
+import ItemForm from "@/app/components/ItemFormField";
 
 export default function Home() {
   return (
     <main>
       <div>
-          <ItemForm fields={[
-              {labelname: "fname", labeltitle: "First Name"},
-              {labelname: "lname", labeltitle: "Last Name"}
-          ]}></ItemForm>
+          <ItemForm></ItemForm>
       </div>
     </main>
   );
