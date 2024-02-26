@@ -9,14 +9,18 @@ const ItemForm: React.FC = ({}) => {
         event.preventDefault()
 
         const formData = new FormData(event.currentTarget)
+        let requestData = {}
         for (let [key, value] of Object.entries(state)) {
-            formData.append(key, value)
+            // @ts-ignore
+            requestData[key] = value
         }
-        const response = await fetch('http://localhost:8082/item', {
+        const response = await fetch('/api/item', {
             method: 'POST',
-            body: formData
+            headers: {
+                'content-type': 'application/json;charset=UTF-8'
+            },
+            body: JSON.stringify(requestData)
         })
-        console.log(l)
     }
     return (
         <form onSubmit={onSubmit} style={{margin: "1em"}}>
