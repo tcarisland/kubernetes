@@ -21,6 +21,11 @@ const ItemForm: React.FC = ({}) => {
             },
             body: JSON.stringify(requestData)
         })
+        if(response.status == 200) {
+            alert("Success")
+        } else {
+            alert("Request Failed\n" + response.status + "\n" + response.statusText)
+        }
     }
     return (
         <form onSubmit={onSubmit} style={{margin: "1em"}}>
