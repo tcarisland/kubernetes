@@ -28,13 +28,13 @@ const ItemForm: React.FC = ({}) => {
         }
     }
     return (
-        <form onSubmit={onSubmit} style={{margin: "1em"}}>
+        <form onSubmit={onSubmit} style={{margin: "1em 1em 0em 1em"}}>
                 <div key={1} style={{margin: "1em"}}>
                     <label htmlFor="name">Name: </label>
                     <br/>
-                    <input type="text" style={{border: "1px solid black"}} id="name" value={state.name} onChange={(e) => setState({name: e.target.value})} />
+                    <input type="text" style={{border: "1px solid black", padding: ".3em 1em .3em 1em"}} id="name" value={state.name} onChange={(e) => setState({name: e.target.value})} />
                 </div>
-            <button type="submit" style={{margin: "1em"}}>Click Me</button>
+            <button type="submit" style={{margin: "1em", padding: ".3em 1em .3em 1em", border: "1px solid black"}}>Click Me</button>
         </form>
     )
 }
