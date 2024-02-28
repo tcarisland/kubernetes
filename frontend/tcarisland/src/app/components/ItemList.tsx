@@ -7,7 +7,6 @@ const ItemList: React.FC = ({}) => {
         fetch('/api/item', {
             method: 'GET'
         }).then(response => response.json()).then(data => setData(data))
-        console.log(data)
     })
     return (
         <ul style={{padding: "0em 2em 2em 2em"}}>
