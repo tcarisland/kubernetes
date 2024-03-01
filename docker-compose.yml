@@ -6,6 +6,10 @@ services:
     container_name: "mongodb"
     ports:
       - 27017:27017
+    environment:
+      SPRING_APPLICATION_JSON: '{
+          "spring.data.mongodb.uri" : "mongodb://mongodb:27017/?authSource=admin"
+        }'
     volumes:
       - db:/data/db
     networks:
@@ -20,6 +24,8 @@ services:
     networks:
       - my_network
   frontend:
+    depends_on:
+      rest-api
     image: tcarisland/tcclient
     container_name: nextjs-app
     ports:
