@@ -5,7 +5,7 @@ const nextConfig = {
         return [
             {
                 source: '/api/:path*',
-                destination: 'http://spring-boot-app:8080/:path*',
+                destination: 'http://tcapi:8080/:path*',
             },
         ]
     },

@@ -2,25 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    io.kompose.service: apiservice
-  name: apiservice
+    io.kompose.service: tcapi
+  name: tcapi
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: apiservice
+      io.kompose.service: tcapi
   template:
     metadata:
       labels:
         io.kompose.network/docker-mynetwork: "true"
-        io.kompose.service: apiservice
+        io.kompose.service: tcapi
     spec:
       containers:
         - env:
             - name: SPRING_DATA_MONGODB_URI
               value: mongodb://mongodb:27017/tcapi
           image: tcarisland/tcapi:latest
-          name: spring-boot-app
+          name: tcapi
           ports:
             - containerPort: 8080
               hostPort: 8080

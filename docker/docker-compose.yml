@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  dbservice:
+  mongodb:
     image: mongo:latest
     container_name: "mongodb"
     ports:
@@ -10,22 +10,22 @@ services:
       - db:/data/db
     networks:
       - mynetwork
-  apiservice:
+  tcapi:
     depends_on:
-      - dbservice
+      - mongodb
     image: tcarisland/tcapi:latest
-    container_name: spring-boot-app
+    container_name: tcapi
     environment:
       SPRING_DATA_MONGODB_URI: "mongodb://mongodb:27017/tcapi"
     ports:
       - "8080:8080"
     networks:
       - mynetwork
-  clientservice:
+  client:
     depends_on:
-      - apiservice
+      - tcapi
     image: tcarisland/tcclient:latest
-    container_name: nextjs-app
+    container_name: "client"
     ports:
       - "3000:3000"
     networks:
