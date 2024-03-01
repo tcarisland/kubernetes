@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert
+    kompose.version: 1.32.0 (765fde254)
+  labels:
+    io.kompose.service: clientservice
+  name: clientservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: clientservice
+  template:
+    metadata:
+      annotations:
+        kompose.cmd: C:\ProgramData\chocolatey\lib\kubernetes-kompose\tools\kompose.exe convert
+        kompose.version: 1.32.0 (765fde254)
+      labels:
+        io.kompose.network/docker-mynetwork: "true"
+        io.kompose.service: clientservice
+    spec:
+      containers:
+        - image: tcarisland/tcclient
+          name: nextjs-app
+          ports:
+            - containerPort: 3000
+              hostPort: 3000
+              protocol: TCP
+      restartPolicy: Always
