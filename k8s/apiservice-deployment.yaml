@@ -24,7 +24,7 @@ spec:
       containers:
         - env:
             - name: SPRING_DATA_MONGODB_URI
-              value: spring.data.mongodb.uri=mongodb://mongodb:27017/tcapi
+              value: mongodb://mongodb:27017/tcapi
           image: tcarisland/tcapi:latest
           name: spring-boot-app
           ports:
