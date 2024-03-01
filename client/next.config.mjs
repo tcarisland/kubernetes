@@ -5,7 +5,7 @@ const nextConfig = {
         return [
             {
                 source: '/api/:path*',
-                destination: 'http://spring-boot-app:8082/:path*',
+                destination: 'http://spring-boot-app:8080/:path*',
             },
         ]
     },
