@@ -15,10 +15,6 @@ services:
       - mongo_db
     image: tcarisland/tcapi:latest
     container_name: spring-boot-app
-    environment:
-      SPRING_APPLICATION_JSON: '{
-          "spring.data.mongodb.uri" : "mongodb://mongodb:27017"
-        }'
     ports:
       - "8080:8080"
     networks:
