@@ -2,23 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    name: client
+    app: client
   name: client
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: client
+      app: client
   template:
     metadata:
       labels:
-        name: client
+        app: client
     spec:
       containers:
         - image: tcarisland/tcclient:latest
           name: client
           ports:
             - containerPort: 3000
-              hostPort: 3000
-              protocol: TCP
       restartPolicy: Always
